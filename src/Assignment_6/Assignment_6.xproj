@@ -14,6 +14,7 @@
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
     <DevelopmentServerPort>62104</DevelopmentServerPort>
+    <ApplicationInsightsResourceId>/subscriptions/246b3363-d72f-4ddd-94eb-6e1a7fa27b8a/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/Assignment_6</ApplicationInsightsResourceId>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
