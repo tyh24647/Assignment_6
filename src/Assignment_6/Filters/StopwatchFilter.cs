@@ -8,7 +8,17 @@ namespace Assignment_6.Filters {
     * and then adds the result to a response header.
     */
     public class StopwatchFilter : IActionFilter {
-        StopwatchService watchService = new StopwatchService();
+
+        //ConsoleLogger logger;
+        ILogger logger;
+
+        //StopwatchService watchService;// = new StopwatchService();
+        StopwatchService watchService;
+
+        public StopwatchFilter(ILogger logger, StopwatchService watchService) {
+            this.logger = logger;
+            this.watchService = watchService;
+        }
 
         public void OnActionExecuted(ActionExecutedContext context) {
             watchService.Lap("Action Executed");
@@ -16,7 +26,7 @@ namespace Assignment_6.Filters {
         }
 
         public void OnActionExecuting(ActionExecutingContext context) {
-            watchService.Start("Action Executing");
+            watchService.Start("Action Executing", logger);
         }
     }
 }

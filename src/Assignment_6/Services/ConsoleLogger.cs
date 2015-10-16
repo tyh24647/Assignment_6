@@ -1,16 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Assignment_6.Services {
-
-    /*
-    * The only change you should make to this class is to implement an interface.
-    *
-    * This class logs output to the console
-    */
-    public class ConsoleLogger {
+    public class ConsoleLogger : ILogger {
 
         private static ConsoleLogger instance = new ConsoleLogger();
-
+        //private ConsoleLogger instance;
+        
         public static ConsoleLogger Instance { get { return instance; } }
 
         public ConsoleLogger() {

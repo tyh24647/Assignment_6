@@ -6,7 +6,7 @@ namespace Assignment_6.Services {
     * This class stores multiple lists of strings. Each list of 
     * strings can be looked up by a string key.
     */
-    public class MemoryDatabase {
+    public class MemoryDatabase : IDatabase {
         private Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
 
         public int Size { get { return data.Count; } }

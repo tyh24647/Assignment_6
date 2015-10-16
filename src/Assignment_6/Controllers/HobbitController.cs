@@ -12,37 +12,38 @@ namespace Assignment_6.Controllers {/*
     [TypeFilter(typeof(StopwatchFilter))]
     [TypeFilter(typeof(RequestIdFilter))]
     public class HobbitController : Controller {
-        /*
-		* TODO: Get the MemoryDatabase from DependencyInjection instead.
-		*/
-        private MemoryDatabase database = new MemoryDatabase();
 
-        /*
-		* TODO: Get the StopwatchService from DependencyInjection instead.
-		*/
+        private IDatabase database;
+
+        private static ILogger logger;
+
         private StopwatchService watchService = new StopwatchService();
+        
+
+        public HobbitController(ILogger logger, IDatabase database) {
+            HobbitController.logger = logger;
+            this.database = database;
+            watchService.Lap("Controller");
+            database.GetData("Hobbit");
+            //database.GetData(generator.Generate);
+            //watchService.Start(watchService.ToString(), logger.Instance);
+            //database.AddString(watchService.ToString(), this.name);
+        }
+
 
         [HttpGet]
         public IEnumerable<string> Get() {
-            /*
-			* TODO: Shouldn't be using ConsoleLogger directly. What if we wanted to use a different type of logger?
-			*/
-            ConsoleLogger.Instance.Log("GET hobbits returning " + database.Size);
+            logger.Log("GET hobbits returning " + database.Size);
             watchService.Lap("Controller");
-
             return database.GetData("Hobbit");
         }
 
+
         [HttpPost]
         public string Post([FromQuery] string hobbit) {
-            /*
-			* TODO: Shouldn't be using ConsoleLogger directly. What if we wanted to use a different type of logger?
-			*/
-            ConsoleLogger.Instance.Log("POST hobbits adding " + hobbit);
+            logger.Log("POST hobbits adding " + hobbit);
             watchService.Lap("Controller");
-
             database.AddString("Hobbit", hobbit);
-
             return hobbit;
         }
     }

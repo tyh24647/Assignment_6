@@ -7,6 +7,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Routing;
 using Microsoft.Framework.DependencyInjection;
+using Assignment_6.Services;
 
 namespace Assignment_6 {
     public class Startup {
@@ -14,11 +15,15 @@ namespace Assignment_6 {
         public Startup(IHostingEnvironment env) { }
 
         public void ConfigureServices(IServiceCollection services) {
+            services.AddScoped<StopwatchService>();
+            services.AddScoped<IDatabase, MemoryDatabase>();
+            services.AddScoped<IRequestIdGenerator, GuidRequestIdGenerator>();
+
+            services.AddInstance<ILogger>(ConsoleLogger.Instance);
+            //services.AddSingleton<ILogger, ConsoleLogger>();
+            //services.AddScoped<StopwatchService>();
+            //services.AddInstance<>()
             services.AddMvc();
-            
-            /*
-            * TODO: Register all dependencies here.
-            */
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
