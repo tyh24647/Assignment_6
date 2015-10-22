@@ -8,8 +8,7 @@ namespace Assignment_6.Filters {
     * and then adds the result to a response header.
     */
     public class StopwatchFilter : IActionFilter {
-
-        //ConsoleLogger logger;
+        
         private ILogger logger;
 
         StopwatchService watchService;

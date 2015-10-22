@@ -7,9 +7,11 @@ namespace Assignment_6.Services {
     * strings can be looked up by a string key.
     */
     public class MemoryDatabase : IDatabase {
+
         private Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
 
         public int Size { get { return data.Count; } }
+
 
         public void AddString(string key, string newData) {
             List<string> keyData;
@@ -22,6 +24,7 @@ namespace Assignment_6.Services {
             keyData = new List<string>() { newData };
             this.data.Add(key, keyData);
         }
+
 
         public IEnumerable<string> GetData(string key) {
             List<string> keyData;

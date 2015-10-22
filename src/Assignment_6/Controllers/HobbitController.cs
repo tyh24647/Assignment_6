@@ -3,8 +3,8 @@ using Microsoft.AspNet.Mvc;
 using Assignment_6.Filters;
 using Assignment_6.Services;
 
-
-namespace Assignment_6.Controllers {/*
+namespace Assignment_6.Controllers {
+    /*
 	* The main endpoint controller. Stores and allows updates to a list of strings (hobbit names).
 	*/
     [Route("api/[controller]")]
@@ -13,21 +13,11 @@ namespace Assignment_6.Controllers {/*
     public class HobbitController : Controller {
 
         private IDatabase database;
-
-        //private static ILogger logger;
+        
         private static ILogger logger;
 
         private StopwatchService watchService;
         //private StopwatchService watchService = new StopwatchService();
-
-        /*
-        public HobbitController(ILogger logger, IDatabase database) {
-            HobbitController.logger = logger;
-            this.database = database;
-            watchService.Lap("Controller");
-            database.GetData("Hobbit");
-        }
-        */
 
 
         ///*
@@ -41,6 +31,16 @@ namespace Assignment_6.Controllers {/*
         //*/
 
 
+        /*
+        public HobbitController(ILogger logger, IDatabase database) {
+            HobbitController.logger = logger;
+            this.database = database;
+            watchService.Lap("Controller");
+            database.GetData("Hobbit");
+        }
+        */
+
+            
         [HttpGet]
         public IEnumerable<string> Get() {
             logger.Log("GET hobbits returning " + database.Size);
