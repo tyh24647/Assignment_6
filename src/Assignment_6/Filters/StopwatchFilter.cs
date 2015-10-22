@@ -10,15 +10,23 @@ namespace Assignment_6.Filters {
     public class StopwatchFilter : IActionFilter {
 
         //ConsoleLogger logger;
-        ILogger logger;
+        private ILogger logger;
 
-        //StopwatchService watchService;// = new StopwatchService();
         StopwatchService watchService;
+        //StopwatchService watchService = new StopwatchService();
 
+        /*
+        public StopwatchFilter(ILogger logger) {
+            this.logger = logger;
+        }
+        */
+
+        ///*
         public StopwatchFilter(ILogger logger, StopwatchService watchService) {
             this.logger = logger;
             this.watchService = watchService;
         }
+        //*/
 
         public void OnActionExecuted(ActionExecutedContext context) {
             watchService.Lap("Action Executed");

@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace Assignment_6.Services {
     public interface ILogger {
-        //ConsoleLogger Instance { get; }
         void Log(string message);
     }
 }

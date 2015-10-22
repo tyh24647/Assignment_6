@@ -15,14 +15,12 @@ namespace Assignment_6 {
         public Startup(IHostingEnvironment env) { }
 
         public void ConfigureServices(IServiceCollection services) {
-            services.AddScoped<StopwatchService>();
+            
             services.AddScoped<IDatabase, MemoryDatabase>();
             services.AddScoped<IRequestIdGenerator, GuidRequestIdGenerator>();
-
+            services.AddScoped<StopwatchService>();
+            //services.AddSingleton<ConsoleLogger>();
             services.AddInstance<ILogger>(ConsoleLogger.Instance);
-            //services.AddSingleton<ILogger, ConsoleLogger>();
-            //services.AddScoped<StopwatchService>();
-            //services.AddInstance<>()
             services.AddMvc();
         }
 

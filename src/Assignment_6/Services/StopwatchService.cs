@@ -9,7 +9,6 @@ namespace Assignment_6.Services {
     public class StopwatchService {
 
         private ILogger logger;
-        //private ConsoleLogger logger;
 
         private Stopwatch stopwatch = new Stopwatch();
 

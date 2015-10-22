@@ -7,8 +7,7 @@ namespace Assignment_6.Services {
     public class ConsoleLogger : ILogger {
 
         private static ConsoleLogger instance = new ConsoleLogger();
-        //private ConsoleLogger instance;
-        
+
         public static ConsoleLogger Instance { get { return instance; } }
 
         public ConsoleLogger() {
