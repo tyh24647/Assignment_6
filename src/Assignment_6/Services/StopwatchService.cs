@@ -2,7 +2,6 @@
 using System.Text;
 
 namespace Assignment_6.Services {
-
     /**
     * This class times how long passes between events.
     */

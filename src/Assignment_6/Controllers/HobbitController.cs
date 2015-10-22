@@ -16,38 +16,20 @@ namespace Assignment_6.Controllers {
         
         private static ILogger logger;
 
-        private StopwatchService watchService;
-        //private StopwatchService watchService = new StopwatchService();
-
-
-        ///*
+        private static StopwatchService watchService;
+        
         public HobbitController(ILogger logger, IDatabase database, StopwatchService watchService) {
             HobbitController.logger = logger;
             this.database = database;
-            this.watchService = watchService;
-            watchService.Lap("Controller");
-            database.GetData("Hobbit");
+            HobbitController.watchService = watchService;
         }
-        //*/
 
-
-        /*
-        public HobbitController(ILogger logger, IDatabase database) {
-            HobbitController.logger = logger;
-            this.database = database;
-            watchService.Lap("Controller");
-            database.GetData("Hobbit");
-        }
-        */
-
-            
         [HttpGet]
         public IEnumerable<string> Get() {
             logger.Log("GET hobbits returning " + database.Size);
             watchService.Lap("Controller");
             return database.GetData("Hobbit");
         }
-
 
         [HttpPost]
         public string Post([FromQuery] string hobbit) {

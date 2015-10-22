@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
 namespace Assignment_6.Services {
-
     /*
     * This class stores multiple lists of strings. Each list of 
     * strings can be looked up by a string key.
@@ -11,7 +10,6 @@ namespace Assignment_6.Services {
         private Dictionary<string, List<string>> data = new Dictionary<string, List<string>>();
 
         public int Size { get { return data.Count; } }
-
 
         public void AddString(string key, string newData) {
             List<string> keyData;
@@ -24,7 +22,6 @@ namespace Assignment_6.Services {
             keyData = new List<string>() { newData };
             this.data.Add(key, keyData);
         }
-
 
         public IEnumerable<string> GetData(string key) {
             List<string> keyData;

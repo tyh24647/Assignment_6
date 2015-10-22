@@ -2,7 +2,6 @@
 using Microsoft.AspNet.Mvc;
 
 namespace Assignment_6.Filters {
-
     /* 
     * This class times how long a request takes to execute
     * and then adds the result to a response header.
@@ -11,21 +10,12 @@ namespace Assignment_6.Filters {
         
         private ILogger logger;
 
-        StopwatchService watchService;
-        //StopwatchService watchService = new StopwatchService();
+        static StopwatchService watchService;
 
-        /*
-        public StopwatchFilter(ILogger logger) {
-            this.logger = logger;
-        }
-        */
-
-        ///*
         public StopwatchFilter(ILogger logger, StopwatchService watchService) {
             this.logger = logger;
-            this.watchService = watchService;
+            StopwatchFilter.watchService = watchService;
         }
-        //*/
 
         public void OnActionExecuted(ActionExecutedContext context) {
             watchService.Lap("Action Executed");

@@ -14,13 +14,6 @@ namespace Assignment_6 {
             services.AddTransient<IRequestIdGenerator, GuidRequestIdGenerator>();
             services.AddInstance<ILogger>(ConsoleLogger.Instance);
             services.AddMvc();
-            /*
-            services.AddScoped<IDatabase, MemoryDatabase>();
-            services.AddScoped<IRequestIdGenerator, GuidRequestIdGenerator>();
-            services.AddScoped<StopwatchService>();
-            services.AddInstance<ILogger>(ConsoleLogger.Instance);
-            services.AddMvc();
-            */
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
